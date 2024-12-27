@@ -1,0 +1,95 @@
+#
+# 全局配置文件
+#
+
+# 基础路径
+# debug 模式是当前目录
+BasePath: .
+
+# release模式
+# BasePath: /opt/cc
+
+## 认证配置
+Auth:
+  AccessSecret: 9042252c-1c4c-41bc-a934-9f56a1971bd7
+  AccessExpire: 86400
+  AccessExpireSP: 86400
+  AccessExpireCustomer: 86400
+
+# ectd 服务器配置
+Etcd:
+  Hosts:
+    - 127.0.0.1:2379
+
+# Redis 配置
+RedisConf:
+  Host: 127.0.0.1:56379
+  Type: node
+  Password: ""
+  Tls: false
+
+# mydb1 数据库链接字符串
+MyDB1Link: root:root123456@tcp(127.0.0.1:3310)/mydb1?charset=utf8mb4&parseTime=True&loc=Local
+
+# mydb2 数据库链接字符串
+MyDB2Link: root:root123456@tcp(base.internal.com:3306)/mydb2?charset=utf8mb4&parseTime=True&loc=Local
+
+
+#
+# 日志客户端配置
+#
+
+LogConf:
+  # Cli日志配置
+  CliConf:
+    # 是否启用
+    Enable: false
+    # unix socket 服务端链接
+    ServerSocket: /run/socket/cliserver.sock
+    # unix socket 客户端链接
+    ClientSocket: /run/socket
+    # 默认级别
+    DefaultLevel: 0
+    # 命令函数
+    CommandProces:
+
+  # 日志服务器配置
+  ServerConf:
+    # 是否启用
+    Enable: false
+    # 默认级别
+    DefaultLevel: 0
+    # 默认级别
+    ServerInfo: ws://127.0.0.1:2079/log
+    # 默认级别
+    TPType: ws
+
+  # 命令行打印
+  ConsoleConf:
+    Enable: true
+
+  # 系统日志
+  SyslogConf:
+    Enable: false
+
+
+
+# RPC服务列表，用在分开跑的情况
+# RpcServerList:
+#   Auth: auth.rpc
+#   Operation: operation.rpc
+#   Maintain: maintain.rpc
+#   Resource: resource.rpc
+
+# RPC服务列表，用在合并跑的情况
+RpcServerList:
+  Overall: overall.rpc
+  Auth: overall.rpc
+  OperateLog: overall.rpc
+  Maintain: overall.rpc
+  Operation: overall.rpc
+  Resource: overall.rpc
+  Route: overall.rpc
+  Query: overall.rpc
+  Common: overall.rpc
+

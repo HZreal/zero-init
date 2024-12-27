@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  redis:
+    image: redis
+    ports:
+      - 56379:6379
+
+  etcd:
+    image: 'bitnami/etcd:latest'
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
+    ports:
+      - 52379:2379
+      - 52380:2380
+
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/init:/docker-entrypoint-initdb.d/
+    ports:
+      - 53306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123456
+      - MYSQL_USER=test
+      - MYSQL_PASS=root123456

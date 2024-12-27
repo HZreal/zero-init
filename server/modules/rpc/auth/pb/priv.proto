@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package priv;
+option go_package = "./priv";
+
+message CheckTokenExpireReq {
+    // 用户ID
+    int64 userId = 1;
+
+    //
+    string token = 2;
+}
+
+message CheckTokenExpireResp {
+    bool isExpire = 1;
+}
+
+service priv {
+    // 检查 token 过期
+    rpc CheckTokenExpire(CheckTokenExpireReq) returns (CheckTokenExpireResp);
+}
+
+// goctl rpc protoc priv.proto --go_out=. --go-grpc_out=. --zrpc_out=../ --style=goZero -m

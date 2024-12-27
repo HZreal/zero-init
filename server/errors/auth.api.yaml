@@ -1,0 +1,43 @@
+# Module: 模块编号
+# Role: 该模块下的 Role 文件夹分层
+# Start: 该模块下的【起始】错误码
+# zh-CN: 中文词条
+# en-US: 英文词条
+# Msg: 错误信息
+# Detail: 错误详细信息
+#
+# 最终错误码：100-00-0000（区间：100000000~100999999）
+#
+# 规则:
+# 1、Module 起始为100，每个模块递增1
+# 2、Start 与下一个模块最小区间为1000
+
+# 模块编号
+Module: 200
+
+# 决定了生成的go代码在哪里，基于service 目录的相对目录
+Path: "modules/api/auth/ierr"
+
+# go代码的包名
+Package: "ierr"
+
+# 错误开始ID
+Start: 0
+
+Error:
+  - LoginFailed:
+      zh-CN: "认证失败"
+      en-US: "Authentication Failed"
+  - LoginFailedNotFound:
+      zh-CN: "客户名称或者用户名错误"
+      en-US: "The customer or username error"
+  - LoginFailedPassword:
+      zh-CN: "密码错误"
+      en-US: "Password incorrect."
+  - LoginCaptcha:
+      zh-CN: "图形验证码错误"
+      en-US: "Graph verify code error"
+  - LogoutFailed:
+      zh-CN: "登出失败"
+      en-US: "Logout Failed"
+

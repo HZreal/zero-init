@@ -1,0 +1,41 @@
+# Module: 模块编号
+# Role: 该模块下的 Role 文件夹分层
+# Start: 该模块下的【起始】错误码
+# zh-CN: 中文词条
+# en-US: 英文词条
+#
+# 最终错误码：100-00-0000（区间：100000000~100999999）
+#
+# 规则:
+# 1、Module 起始为100，每个模块递增1
+# 2、Start 与下一个模块最小区间为1000
+
+# 模块编号
+Module: 100
+
+# 决定了生成的go代码在哪里，基于service 目录的相对目录
+Path: "common/xerr"
+
+# go代码的包名
+Package: "xerr"
+
+# 错误开始ID
+Start: 0
+
+# 错误信息列表
+Error:
+  - OK: { zh-CN: "成功", en-US:  SUCCESS }
+  - ServerBusy: { zh-CN: "服务器繁忙", en-US: "Server Busy" }
+  - RequestParamError: { zh-CN: "参数错误", en-US: "Request Parameter Error" }
+  - SQLError: { zh-CN: "数据库查询失败", en-US: "Database Query Failed" }
+  - NoRecord: { zh-CN: "无此记录，请刷新浏览器后重试", en-US: "No this record, please refresh and retry" }
+  - FieldNotSet: { zh-CN: "请填写 %s 字段", en-US: "Please Input field %s" }
+  - FieldTypeError: { zh-CN: "请检查字段 %s ", en-US: "Please check %s" }
+  - FilterNeeded: { zh-CN: "请检查过滤条件", en-US: "Please check the filter" }
+  - ActionNoPermission: { zh-CN: "操作未授权", en-US: "Action No Permission" }
+  - ActionNoPermission1:  { zh-CN: "页面[%s]中[%s]操作未授权", en-US: "Page %s's action %s has no premission" }
+  - NameExist: { zh-CN: "名称已经存在，请更换", en-US: "Name has been used, please reinput." }
+  - FileNotExist: {zh-CN: "文件不存在", en-US: "File does not exist"}
+  - UploadFailed: {zh-CN: "文件上传失败", en-US: "File upload failed"}
+  - UploadFileTooLarge: {zh-CN: "上传文件过大", en-US: "File Too Large"}
+  - UploadFileTypeNotAllowed: {zh-CN: "上传文件类型不允许", en-US: "File Type Not Allowed"}

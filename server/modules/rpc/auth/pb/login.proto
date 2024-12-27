@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package login;
+option go_package = "./login";
+
+// 账户登录请求
+message AccountLoginReq {
+	string username = 1;
+	string password = 2;
+}
+
+// 手机登录请求
+message SMSLoginReq {
+	string number = 1;
+	string code = 2;
+}
+
+// 登录响应
+message LoginResp {
+	// 用户名
+	string username = 1;
+
+	// 用户ID
+	int64 userId = 4;
+
+	// 角色类型，系统预设的角色类型
+	int64 roleType = 5;
+
+	// 角色ID
+	int64 roleId = 6;
+
+	// 当前用户的加密token
+	string token = 8;
+}
+
+message LogoutReq {
+	// 用户ID
+	int64 userId = 2;
+}
+
+message LogoutResq {
+	bool isDel = 1;
+}
+
+service login {
+	// 登录
+	rpc AccountLogin(AccountLoginReq) returns (LoginResp);
+
+	// 退出登录
+	rpc Logout(LogoutReq) returns (LogoutResq);
+}
+
+// goctl rpc protoc login.proto --go_out=. --go-grpc_out=. --zrpc_out=../ --style=goZero -m

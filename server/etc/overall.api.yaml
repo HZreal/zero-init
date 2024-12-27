@@ -1,0 +1,13 @@
+Name: overall.api
+Host: 0.0.0.0
+Port: 3010
+Mode: dev
+Timeout: 300000
+
+
+Upload:
+  TmpDir: "./tmp"
+
+Auth:
+  AccessSecret: ""
+  AccessExpire: 0
