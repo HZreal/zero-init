@@ -9,7 +9,7 @@ package file
 
 import (
 	"os"
-	"overall/common/utils/strtool"
+	"overall/common/utils/encrypt"
 )
 
 func CheckFileDir(dir string) error {
@@ -29,5 +29,5 @@ func CheckFileDir(dir string) error {
 }
 
 func GetRandName(prefix string, timestamp string) string {
-	return prefix + "_" + timestamp + "_" + strtool.Krand(6, strtool.KC_RAND_KIND_LOWER)
+	return prefix + "_" + timestamp + "_" + encrypt.Krand(6, encrypt.KC_RAND_KIND_LOWER)
 }

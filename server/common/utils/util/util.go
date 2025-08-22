@@ -6,7 +6,7 @@ import (
 	"net"
 	"net/http"
 	"os"
-	"overall/common/utils/strtool"
+	"overall/common/utils/encrypt"
 	timeTools "overall/common/utils/time"
 	"path/filepath"
 	"reflect"
@@ -151,7 +151,7 @@ func IsSlice(i interface{}) bool {
 }
 
 func GetSeq(n int) string {
-	return timeTools.Format(timeTools.TIME_FORMAT_YYYYMMDDHHMMSS, time.Now()) + "_" + strtool.Krand(n, strtool.KC_RAND_KIND_LOWER)
+	return timeTools.Format(timeTools.TIME_FORMAT_YYYYMMDDHHMMSS, time.Now()) + "_" + encrypt.Krand(n, encrypt.KC_RAND_KIND_LOWER)
 }
 
 func GetMilliSecond() int64 {

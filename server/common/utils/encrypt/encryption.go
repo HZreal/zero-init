@@ -1,4 +1,4 @@
-package strtool
+package encrypt
 
 import (
 	"crypto/md5"

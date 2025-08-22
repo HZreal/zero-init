@@ -2,7 +2,7 @@ package uniqueid
 
 import (
 	"fmt"
-	"overall/common/utils/strtool"
+	"overall/common/utils/encrypt"
 	"time"
 )
 
@@ -16,5 +16,5 @@ const (
 
 // 生成单号
 func GenSn(snPrefix SnPrefix) string {
-	return fmt.Sprintf("%s%s%s", snPrefix, time.Now().Format("20060102150405"), strtool.Krand(8, strtool.KC_RAND_KIND_NUM))
+	return fmt.Sprintf("%s%s%s", snPrefix, time.Now().Format("20060102150405"), encrypt.Krand(8, encrypt.KC_RAND_KIND_NUM))
 }

@@ -1,4 +1,4 @@
-package strtool
+package validate
 
 import (
 	"math/rand"
@@ -70,4 +70,19 @@ func IsDomainOrIp(str string) bool {
 		}
 	}
 	return true
+}
+
+func CheckEmail(email string) bool {
+	regex := regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`)
+	return regex.MatchString(email)
+}
+
+func CheckPhone(phone string) bool {
+	reg := regexp.MustCompile(`^[a-zA-Z0-9]+$`)
+	return reg.MatchString(phone)
+}
+
+func CheckLettersNumbers(s string) bool {
+	reg := regexp.MustCompile(`^[a-zA-Z0-9]+$`)
+	return reg.MatchString(s)
 }
